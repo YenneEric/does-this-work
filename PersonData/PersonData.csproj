@@ -49,9 +49,11 @@
     <Compile Include="IConferenceRepository.cs" />
     <Compile Include="IInsert.cs" />
     <Compile Include="ISelect.cs" />
+    <Compile Include="ITeamYardsRepository.cs" />
     <Compile Include="IUpdate.cs" />
     <Compile Include="Models\ConferenceTeamRank.cs" />
     <Compile Include="Models\GameSchedule.cs" />
+    <Compile Include="Models\MostTeamYards.cs" />
     <Compile Include="Models\PlayerStatsPerTeam.cs" />
     <Compile Include="Models\PlayerTouchdownRank.cs" />
     <Compile Include="Models\TopScoringTeamRank.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Models\TeamType.cs" />
     <Compile Include="RecordNotFoundException.cs" />
     <Compile Include="SqlAddressRepository.cs" />
+    <Compile Include="SqlMostTeamYards.cs" />
     <Compile Include="SqlPersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlSelectRepository.cs" />
