@@ -8,63 +8,81 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
+        <!-- Header Section -->
+        <TextBlock Text="Insert Data" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,10,0,10" 
+                   Grid.Row="0" 
+                   Grid.ColumnSpan="2" />
+
         <!-- Team and Year Selectors -->
-        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="10">
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Margin="10">
             <TextBlock Text="Team:" VerticalAlignment="Center" Margin="0,0,5,0" />
-            <ComboBox x:Name="TeamComboBox" Width="150" SelectionChanged="OnTeamOrYearChanged" />
-            <TextBlock Text="Year:" VerticalAlignment="Center" Margin="10,0,5,0" />
+            <ComboBox x:Name="TeamComboBox" Width="200" SelectionChanged="OnTeamOrYearChanged" />
+            <TextBlock Text="Year:" VerticalAlignment="Center" Margin="20,0,5,0" />
             <ComboBox x:Name="YearComboBox" Width="100" SelectionChanged="OnTeamOrYearChanged" />
-            <!-- Refresh Button -->
             <Button Content="Refresh" Click="RefreshButton_Click" Width="100" Margin="20,0,0,0" />
         </StackPanel>
 
+        <!-- Team Info Section -->
+        <GroupBox Header="Team Information" Grid.Row="2" Grid.Column="0" Margin="10">
+            <TextBlock Text="{Binding TeamInfo}" 
+                       FontSize="14" 
+                       Margin="10" 
+                       TextWrapping="Wrap" />
+        </GroupBox>
 
-        <!-- Player Details ListView -->
-        <ListView ItemsSource="{Binding PlayerDetails}" Grid.Row="1" Grid.Column="0" Margin="10">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Player ID" DisplayMemberBinding="{Binding PlayerId}" />
-                    <GridViewColumn Header="Player Name" DisplayMemberBinding="{Binding PlayerName}" />
-                    <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Position}" />
-                    <GridViewColumn Header="Jersey Number" DisplayMemberBinding="{Binding JerseyNumber}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <!-- Player Details Section -->
+        <GroupBox Header="Player Details" Grid.Row="3" Grid.Column="0" Margin="10">
+            <ListView ItemsSource="{Binding PlayerDetails}" Margin="5">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Player ID" DisplayMemberBinding="{Binding PlayerId}" />
+                        <GridViewColumn Header="Player Name" DisplayMemberBinding="{Binding PlayerName}" />
+                        <GridViewColumn Header="Position" DisplayMemberBinding="{Binding Position}" />
+                        <GridViewColumn Header="Jersey Number" DisplayMemberBinding="{Binding JerseyNumber}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </GroupBox>
 
-        <!-- Game Schedule ListView -->
-        <ListView ItemsSource="{Binding ScheduleDetails}" Grid.Row="2" Grid.Column="0" Margin="10">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding GameDate, StringFormat=MM/dd/yyyy}" />
-                    <GridViewColumn Header="Location" DisplayMemberBinding="{Binding GameLocation}" />
-                    <GridViewColumn Header="Opponent" DisplayMemberBinding="{Binding OpponentName}" />
-                    <GridViewColumn Header="Team Score" DisplayMemberBinding="{Binding TeamScore}" />
-                    <GridViewColumn Header="Opponent Score" DisplayMemberBinding="{Binding OpponentScore}" />
-                    <GridViewColumn Header="Winner" DisplayMemberBinding="{Binding Winner}" />
-                    <!-- Time of Possession -->
-                    <GridViewColumn Header="Time of Possession (s)" DisplayMemberBinding="{Binding TeamTimeOfPossession}" />
-                    <!-- Game ID -->
-                    <GridViewColumn Header="Game ID" DisplayMemberBinding="{Binding GameId}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <!-- Game Schedule Section -->
+        <GroupBox Header="Game Schedule" Grid.Row="4" Grid.Column="0" Margin="10">
+            <ListView ItemsSource="{Binding ScheduleDetails}" Margin="5">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Date" DisplayMemberBinding="{Binding GameDate, StringFormat=MM/dd/yyyy}" />
+                        <GridViewColumn Header="Location" DisplayMemberBinding="{Binding GameLocation}" />
+                        <GridViewColumn Header="Opponent" DisplayMemberBinding="{Binding OpponentName}" />
+                        <GridViewColumn Header="Team Score" DisplayMemberBinding="{Binding TeamScore}" />
+                        <GridViewColumn Header="Opponent Score" DisplayMemberBinding="{Binding OpponentScore}" />
+                        <GridViewColumn Header="Winner" DisplayMemberBinding="{Binding Winner}" />
+                        <GridViewColumn Header="Time of Possession (s)" DisplayMemberBinding="{Binding TeamTimeOfPossession}" />
+                        <GridViewColumn Header="Game ID" DisplayMemberBinding="{Binding GameId}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </GroupBox>
 
-        <!-- Buttons -->
-        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="10">
+        <!-- Action Buttons -->
+        <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="1" Margin="10">
             <Button Content="Back to Home Page" Click="BackToHomePage" Width="150" Height="40" Margin="0,10" />
             <Button Content="Add Player" Click="NavigateToAddPlayer" Width="150" Height="40" Margin="0,10" />
             <Button Content="Edit Player" Click="NavigateToEditPlayer" Width="150" Height="40" Margin="0,10" />
         </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1" Margin="10">
+        <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1" Margin="10">
             <Button Content="Add Game" Click="NavigateToAddGame" Width="150" Height="40" Margin="0,10" />
             <Button Content="Edit Game" Click="NavigateToEditGame" Width="150" Height="40" Margin="0,10" />
             <Button Content="View Stats" Click="NavigateToViewStats" Width="150" Height="40" Margin="0,10" />
