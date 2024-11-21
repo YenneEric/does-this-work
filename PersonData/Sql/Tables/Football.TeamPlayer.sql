@@ -2,11 +2,11 @@
 BEGIN
    CREATE TABLE Football.TeamPlayer
    (
-      TeamPlayerId INT NOT NULL IDENTITY(1, 1), -- Primary Key (PK)
-      PlayerId INT NOT NULL,                    -- Part of U1 and U2
-      SeasonId INT NOT NULL,                    -- Part of U1 and U2
-      TeamId INT NOT NULL,                      -- Part of U2
-      JerseyNumber INT NOT NULL,                -- Not unique
+      TeamPlayerId INT NOT NULL IDENTITY(1, 1), 
+      PlayerId INT NOT NULL,                    
+      SeasonId INT NOT NULL,                    
+      TeamId INT NOT NULL,                      
+      JerseyNumber INT NOT NULL,                
 
       CONSTRAINT [PK_Football_TeamPlayer_TeamPlayerId] PRIMARY KEY CLUSTERED
       (
@@ -19,7 +19,7 @@ END;
  * Unique Constraints
  ****************************/
 
--- Unique Constraint U1: PlayerId and SeasonId
+
 IF NOT EXISTS
    (
       SELECT *
@@ -36,7 +36,7 @@ BEGIN
    )
 END;
 
--- Unique Constraint U2: PlayerId, SeasonId,
+
 IF NOT EXISTS
    (
       SELECT *
@@ -57,7 +57,7 @@ END;
  * Foreign Keys Constraints
  ****************************/
 
--- Foreign Key to Football.Player
+
 IF NOT EXISTS
    (
       SELECT *
@@ -78,7 +78,7 @@ BEGIN
    );
 END;
 
--- Foreign Key to Football.Season
+
 IF NOT EXISTS
    (
       SELECT *
@@ -99,7 +99,7 @@ BEGIN
    );
 END;
 
--- Foreign Key to Football.Team
+
 IF NOT EXISTS
    (
       SELECT *

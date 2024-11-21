@@ -2,8 +2,8 @@
 BEGIN
    CREATE TABLE Football.Team
    (
-      TeamId INT NOT NULL IDENTITY(1, 1), -- Surrogate key for internal use
-      TeamName NVARCHAR(255) NOT NULL,   -- Natural key
+      TeamId INT NOT NULL IDENTITY(1, 1), 
+      TeamName NVARCHAR(255) NOT NULL,   
       [Location] NVARCHAR(255) NOT NULL,
       Mascot NVARCHAR(255),
       ConfId INT NOT NULL,
@@ -19,7 +19,7 @@ END;
  * Unique Constraints
  ****************************/
 
--- Ensure TeamName is unique to enforce it as a natural key
+
 IF NOT EXISTS
    (
       SELECT *

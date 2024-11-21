@@ -80,15 +80,6 @@
     <EmbeddedResource Include="Sql\Tables\DropTables.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Tables\Person.Person.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Sql\Tables\Person.AddressType.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Sql\Tables\Person.PersonAddress.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Sql\Data\Football.Conference.sql" />
     <Content Include="Sql\Data\Football.Game.sql" />
     <Content Include="Sql\Data\Football.GameTeam.sql" />

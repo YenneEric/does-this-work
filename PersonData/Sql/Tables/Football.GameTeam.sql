@@ -5,10 +5,10 @@ IF OBJECT_ID(N'Football.GameTeam') IS NULL
 BEGIN
    CREATE TABLE Football.GameTeam
    (
-      GameTeamId INT NOT NULL IDENTITY(1, 1), -- Primary Key (PK)
-      TeamId INT NOT NULL,                    -- FK1, Composite Key
-      GameId INT NOT NULL,                    -- FK2, Composite Key
-      TeamTypeId INT NOT NULL,                -- FK3
+      GameTeamId INT NOT NULL IDENTITY(1, 1), 
+      TeamId INT NOT NULL,                    
+      GameId INT NOT NULL,                    
+      TeamTypeId INT NOT NULL,                
       TopOfPossessionSec INT,
       Score INT,
 
@@ -23,7 +23,7 @@ END;
  * Unique Constraints
  ****************************/
 
--- Unique Constraint U1: GameId and TeamTypeId
+
 IF NOT EXISTS
    (
       SELECT *
@@ -40,7 +40,7 @@ BEGIN
    );
 END;
 
--- Composite Unique Constraint U3: GameId and TeamId
+
 IF NOT EXISTS
    (
       SELECT *
@@ -61,7 +61,7 @@ END;
  * Foreign Keys Constraints
  ****************************/
 
--- Foreign Key to Football.Team
+
 IF NOT EXISTS
    (
       SELECT *
@@ -82,7 +82,7 @@ BEGIN
    );
 END;
 
--- Foreign Key to Football.Game
+
 IF NOT EXISTS
    (
       SELECT *
@@ -103,7 +103,7 @@ BEGIN
    );
 END;
 
--- Foreign Key to Football.TeamType
+
 IF NOT EXISTS
    (
       SELECT *
