@@ -280,8 +280,108 @@ namespace PersonData
                     connection.Open();
                     command.ExecuteNonQuery();
                 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+        public List<TopScoringTeamRank> FetchTopScoringTeams(int year)
+        {
+            if (year <= 0)
+                throw new ArgumentException("Year must be a positive integer.", nameof(year));
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                using (var command = new SqlCommand("Football.FetchTopScoringTeams", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Add parameter for year
+                    command.Parameters.AddWithValue("Year", year);
+
+                    connection.Open();
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        var teams = TranslateTopScoringTeams(reader);
+
+                        if (teams.Count == 0)
+                            throw new RecordNotFoundException($"No top scoring teams found for year {year}.");
+
+                        return teams;
+                    }
+                }
+            }
+        }
+
+        private List<TopScoringTeamRank> TranslateTopScoringTeams(SqlDataReader reader)
+        {
+            var teams = new List<TopScoringTeamRank>();
+
+            // Get column ordinals for efficiency
+            var teamNameOrdinal = reader.GetOrdinal("TeamName");
+            var totalPointsOrdinal = reader.GetOrdinal("TotalPoints");
+            var gamesPlayedOrdinal = reader.GetOrdinal("GamesPlayed");
+            var averagePointsOrdinal = reader.GetOrdinal("AveragePoints");
+            var teamRankOrdinal = reader.GetOrdinal("TeamRank");
+
+            while (reader.Read())
+            {
+                var teamName = reader.GetString(teamNameOrdinal);
+                var totalPoints = reader.GetInt32(totalPointsOrdinal);
+                var gamesPlayed = reader.GetInt32(gamesPlayedOrdinal);
+                var averagePoints = reader.GetDecimal(averagePointsOrdinal);
+                var teamRank = reader.GetInt64(teamRankOrdinal);
+
+                teams.Add(new TopScoringTeamRank(teamName, totalPoints, gamesPlayed, averagePoints, teamRank));
+            }
+
+            return teams;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

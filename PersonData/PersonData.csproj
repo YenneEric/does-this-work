@@ -52,6 +52,7 @@
     <Compile Include="Models\GameSchedule.cs" />
     <Compile Include="Models\PlayerStatsPerTeam.cs" />
     <Compile Include="Models\PlayerTouchdownRank.cs" />
+    <Compile Include="Models\TopScoringTeamRank.cs" />
     <Compile Include="SqlInsertRepository.cs" />
     <Compile Include="IPersonRepository.cs" />
     <Compile Include="IStatRepository.cs" />
@@ -127,6 +128,7 @@
     <Content Include="Sql\Procedures\Football.CreateTeamPlayer.sql" />
     <Content Include="Sql\Procedures\Football.EditGameWithId.sql" />
     <Content Include="Sql\Procedures\Football.EditStats.sql" />
+    <Content Include="Sql\Procedures\Football.FetchTopScoringTeams.sql" />
     <Content Include="Sql\Procedures\Football.FetchTouchdowns.sql" />
     <Content Include="Sql\Procedures\Football.GetSchedule.sql" />
     <Content Include="Sql\Procedures\Football.SelectConference.sql" />

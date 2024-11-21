@@ -31,5 +31,12 @@ namespace PersonData
    int? punts = null,
    int? fieldGoalsMade = null);
 
+
+
+        List<TopScoringTeamRank> FetchTopScoringTeams(int year);
+
     }
+
+
+
 }
