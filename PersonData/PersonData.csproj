@@ -132,6 +132,7 @@
     <Content Include="Sql\Procedures\Football.EditGameWithId.sql" />
     <Content Include="Sql\Procedures\Football.EditStats.sql" />
     <Content Include="Sql\Procedures\Football.FetchConferenceTeamRank.sql" />
+    <Content Include="Sql\Procedures\Football.FetchMostTeamYards.sql" />
     <Content Include="Sql\Procedures\Football.FetchTopScoringTeams.sql" />
     <Content Include="Sql\Procedures\Football.FetchTouchdowns.sql" />
     <Content Include="Sql\Procedures\Football.GetSchedule.sql" />

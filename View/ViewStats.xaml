@@ -44,7 +44,10 @@
                         <GridViewColumn Header="Tackles" DisplayMemberBinding="{Binding Tackles}" />
                         <GridViewColumn Header="Sacks" DisplayMemberBinding="{Binding Sacks}" />
                         <GridViewColumn Header="Turnovers" DisplayMemberBinding="{Binding Turnovers}" />
+                        <GridViewColumn Header="Interceptions Caught" DisplayMemberBinding="{Binding InterceptionsCaught}" />
                         <GridViewColumn Header="Touchdowns" DisplayMemberBinding="{Binding Touchdowns}" />
+                        <GridViewColumn Header="Punts" DisplayMemberBinding="{Binding Punts}" />
+                        <GridViewColumn Header="Field Goals Made" DisplayMemberBinding="{Binding FieldGoalsMade}" />
                     </GridView>
                 </ListView.View>
             </ListView>
