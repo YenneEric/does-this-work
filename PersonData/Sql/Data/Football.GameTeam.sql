@@ -7,7 +7,7 @@ DECLARE @GameTeamStaging TABLE
     Score INT NOT NULL
 );
 
--- Insert data into the staging table
+
 INSERT INTO @GameTeamStaging (GameId, TeamId, TeamTypeId, TopOfPossessionSec, Score)
 VALUES
 -- Week 1
@@ -154,7 +154,7 @@ VALUES
 (64, 15, 1, 1400, 34), -- North Carolina Tar Heels (Home)
 (64, 4, 2, 1050, 14); -- LSU Tigers (Away)
 
--- Insert data into the GameTeam table
+
 MERGE Football.GameTeam T
 USING @GameTeamStaging S
 ON T.GameId = S.GameId AND T.TeamId = S.TeamId AND T.TeamTypeId = S.TeamTypeId

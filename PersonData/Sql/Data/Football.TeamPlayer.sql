@@ -6,7 +6,7 @@ DECLARE @TeamPlayerStaging TABLE
     JerseyNumber INT NOT NULL
 );
 
-/***************************** Modify values here *****************************/
+
 
 INSERT INTO @TeamPlayerStaging (PlayerId, TeamId, SeasonId, JerseyNumber)
 VALUES
@@ -124,7 +124,7 @@ VALUES
 	(101, 6, 1, 39),
 	(102, 6, 1, 22),
 
-	-- Repeat for all remaining teams and players...
+	
 	-- Penn State Nittany Lions (TeamId = 7)
 	(103, 7, 1, 12),
 	(104, 7, 1, 33),

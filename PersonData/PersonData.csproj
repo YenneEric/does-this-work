@@ -94,9 +94,6 @@
     <EmbeddedResource Include="Sql\Tables\Person.PersonAddress.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Data\Person.AddressType.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Sql\Schemas\Person.sql" />
   </ItemGroup>
   <ItemGroup>

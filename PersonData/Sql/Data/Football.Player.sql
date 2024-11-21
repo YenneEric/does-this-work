@@ -4,7 +4,7 @@ DECLARE @PlayerStaging TABLE
     Position NVARCHAR(50) NOT NULL
 );
 
--- Insert data into the staging table
+
 INSERT @PlayerStaging (PlayerName, Position)
 VALUES
 -- Set 1
@@ -112,7 +112,7 @@ VALUES
 ('Daenerys Targaryen', 'Tight End'),
 ('Tyrion Lannister', 'Tight End'),
 ('Jaime Lannister', 'Tight End'),
--- Set 6 (continued)
+
 ('Cersei Lannister', 'Linebacker'),
 ('Sandor Clegane', 'Linebacker'),
 ('Gregor Clegane', 'Cornerback'),

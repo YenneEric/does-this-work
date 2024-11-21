@@ -22,7 +22,7 @@ VALUES
     ('Penn State Nittany Lions', 'University Park, PA', 'Nittany Lion', 2),
     ('Wisconsin Badgers', 'Madison, WI', 'Bucky Badger', 2);
 
--- Big-12 Teams (Kansas State, Kansas University, Colorado, Iowa State)
+-- Big-12 Teams 
 INSERT INTO @TeamStaging (TeamName, [Location], Mascot, ConfId)
 VALUES
     ('Kansas State Wildcats', 'Manhattan, KS', 'Willie the Wildcat', 3),
@@ -38,7 +38,7 @@ VALUES
     ('North Carolina Tar Heels', 'Chapel Hill, NC', 'Rameses', 1),
     ('Duke Blue Devils', 'Durham, NC', 'Blue Devil', 1);
 
--- Insert Staged Data into Football.Team
+
 INSERT INTO Football.Team (TeamName, [Location], Mascot, ConfId)
 SELECT TeamName, [Location], Mascot, ConfId
 FROM @TeamStaging;

@@ -5,7 +5,6 @@ DECLARE @GameStaging TABLE
     Canceled INT NOT NULL DEFAULT(0)
 );
 
--- Insert data into the staging table for all years
 INSERT INTO @GameStaging ([Date], [Location], Canceled)
 VALUES
 -- Week 1
@@ -88,7 +87,7 @@ VALUES
 ('2019-10-20', 'Columbus, OH', 0),
 ('2019-10-20', 'Chapel Hill, NC', 0);
 
--- Repeat the above for years 2020, 2021, 2022, 2023, and 2024 by incrementing the year in the [Date] column.
+
 
 MERGE Football.Game T
 USING @GameStaging S 
