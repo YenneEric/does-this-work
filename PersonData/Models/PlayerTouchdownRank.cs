@@ -8,8 +8,8 @@ namespace PersonData.Models
 {
     public class PlayerTouchdownRank
     {
-        public Player Player { get; } // Reference to the Player object
-        public string TeamName { get; } // Include TeamName
+        public Player Player { get; } 
+        public string TeamName { get; } 
         public int TotalTouchdowns { get; }
         public long PositionRank { get; }
 

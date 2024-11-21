@@ -2,7 +2,7 @@
 
 public class GameSchedule
 {
-    public int GameId { get; set; } // New property for Game ID
+    public int GameId { get; set; } 
     public DateTime GameDate { get; set; }
     public string GameLocation { get; set; }
     public string TeamName { get; set; }

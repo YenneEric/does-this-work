@@ -8,10 +8,7 @@ namespace PersonData.Models
         public string Location { get; }
         public bool Canceled { get; }
 
-        //don't think I need to include time but if do here
-
-        //public DateTime Date { get; }
-        //public DateTimeOffset Time { get; }
+        
 
         public Game(int gameId, string location, bool canceled)
         {

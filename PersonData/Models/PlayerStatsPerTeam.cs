@@ -5,7 +5,7 @@ namespace PersonData.Models
     public class GamePlayerStats
     {
         public int GameId { get; }
-        public int PlayerId { get; } // Added PlayerId
+        public int PlayerId { get; } 
         public string PlayerName { get; }
         public string Position { get; }
         public int? RushingYards { get; }

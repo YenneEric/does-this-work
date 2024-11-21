@@ -61,8 +61,6 @@
     <Compile Include="SqlInsertRepository.cs" />
     <Compile Include="IPersonRepository.cs" />
     <Compile Include="IStatRepository.cs" />
-    <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\AddressType.cs" />
     <Compile Include="Models\Conference.cs" />
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\GameTeam.cs" />
