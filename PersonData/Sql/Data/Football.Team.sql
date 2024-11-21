@@ -9,10 +9,10 @@ DECLARE @TeamStaging TABLE
 -- SEC Teams
 INSERT INTO @TeamStaging (TeamName, [Location], Mascot, ConfId)
 VALUES
-    ('Alabama Crimson Tide', 'Tuscaloosa, AL', 'Big Al', 1),
-    ('Georgia Bulldogs', 'Athens, GA', 'Uga', 1),
-    ('Florida Gators', 'Gainesville, FL', 'Albert Gator', 1),
-    ('LSU Tigers', 'Baton Rouge, LA', 'Mike the Tiger', 1);
+    ('Alabama Crimson Tide', 'Tuscaloosa, AL', 'Big Al', 4),
+    ('Georgia Bulldogs', 'Athens, GA', 'Uga', 4),
+    ('Florida Gators', 'Gainesville, FL', 'Albert Gator', 4),
+    ('LSU Tigers', 'Baton Rouge, LA', 'Mike the Tiger', 4);
 
 -- Big Ten Teams
 INSERT INTO @TeamStaging (TeamName, [Location], Mascot, ConfId)
@@ -33,10 +33,10 @@ VALUES
 -- ACC Teams
 INSERT INTO @TeamStaging (TeamName, [Location], Mascot, ConfId)
 VALUES
-    ('Clemson Tigers', 'Clemson, SC', 'The Tiger', 4),
-    ('Florida State Seminoles', 'Tallahassee, FL', 'Osceola and Renegade', 4),
-    ('North Carolina Tar Heels', 'Chapel Hill, NC', 'Rameses', 4),
-    ('Duke Blue Devils', 'Durham, NC', 'Blue Devil', 4);
+    ('Clemson Tigers', 'Clemson, SC', 'The Tiger', 1),
+    ('Florida State Seminoles', 'Tallahassee, FL', 'Osceola and Renegade', 1),
+    ('North Carolina Tar Heels', 'Chapel Hill, NC', 'Rameses', 1),
+    ('Duke Blue Devils', 'Durham, NC', 'Blue Devil', 1);
 
 -- Insert Staged Data into Football.Team
 INSERT INTO Football.Team (TeamName, [Location], Mascot, ConfId)
