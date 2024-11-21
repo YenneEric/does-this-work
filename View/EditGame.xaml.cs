@@ -6,9 +6,7 @@ using PersonData.Models;
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for EditGame.xaml
-    /// </summary>
+    
     public partial class EditGame : UserControl
     {
         private readonly IUpdate _updateRepository;
@@ -26,7 +24,7 @@ namespace View
             LoadTeams();
         }
 
-        // Load team data into the ComboBoxes
+        
         private void LoadTeams()
         {
             try
@@ -41,7 +39,7 @@ namespace View
             }
         }
 
-        // Load game details into the fields
+        
         public void LoadGameDetails(
             int gameId,
             DateTime gameDate,
@@ -66,19 +64,19 @@ namespace View
             Team2TopTextBox.Text = awayTop?.ToString();
         }
 
-        // Save button click event
+        
         private void SaveGameButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                // Validate only GameId as required
+                
                 if (!int.TryParse(GameIdTextBox.Text, out var gameId))
                 {
                     MessageBox.Show("Invalid Game ID.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                // Other fields are optional
+                
                 var gameDate = GameDatePicker.SelectedDate;
                 var gameLocation = string.IsNullOrWhiteSpace(GameLocationTextBox.Text) ? null : GameLocationTextBox.Text;
 
@@ -91,7 +89,7 @@ namespace View
                 int? awayTop = ParseNullableInt(Team2TopTextBox.Text);
                 int? awayScore = ParseNullableInt(Team2ScoreTextBox.Text);
 
-                // Call UpdateGameDetails procedure
+                
                 _updateRepository.UpdateGameDetails(
                     gameId,
                     homeTeam?.TeamName,
@@ -106,7 +104,7 @@ namespace View
 
                 MessageBox.Show("Game details updated successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                // Navigate back
+                
                 NavigateBack?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)

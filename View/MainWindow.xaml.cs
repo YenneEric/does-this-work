@@ -44,7 +44,7 @@ namespace View
         {
             HideAllPages();
 
-            // Show the appropriate page based on the button clicked
+            
             switch (e.Name)
             {
                 case "InsertButton":
@@ -62,7 +62,7 @@ namespace View
                 case "MostTeamYards":
                     MostTeamYards.Visibility = Visibility.Visible;
                     break;
-                case "AddOthers": // Correct button name
+                case "AddOthers": 
                     AddOthers.Visibility = Visibility.Visible; 
                     break;
             }
@@ -116,17 +116,17 @@ namespace View
             HideAllPages();
             InsertData.Visibility = Visibility.Visible;
 
-            // Refresh data on the InsertData page to ensure it reflects any updates
+            
            // InsertData.RefreshData();
         }
 
         private void HideAllPages()
         {
-            // Hide all pages to prepare for navigation
+            
             HomePage.Visibility = Visibility.Hidden;
             InsertData.Visibility = Visibility.Hidden;
             AddPlayerPage.Visibility = Visibility.Hidden;
-            AddGame.Visibility = Visibility.Hidden; // Ensure AddGamePage is hidden
+            AddGame.Visibility = Visibility.Hidden; 
             MostTouchdowns.Visibility = Visibility.Hidden;
             ConfrenceWins.Visibility = Visibility.Hidden;
             MostTeamYards.Visibility = Visibility.Hidden;

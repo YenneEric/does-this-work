@@ -39,14 +39,14 @@ namespace View
         {
             try
             {
-                // Validate Game ID
+                
                 if (!int.TryParse(GameIdTextBox.Text, out var gameId))
                 {
                     MessageBox.Show("Invalid Game ID.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                // Validate Team Name
+                
                 var selectedTeam = TeamNameComboBox.SelectedItem as Team;
                 if (selectedTeam == null || string.IsNullOrWhiteSpace(selectedTeam.TeamName))
                 {
@@ -54,14 +54,14 @@ namespace View
                     return;
                 }
 
-                // Validate Player ID
+                
                 if (!int.TryParse(PlayerIdTextBox.Text, out var playerId))
                 {
                     MessageBox.Show("Invalid Player ID.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                // Parse optional stats
+                
                 int? rushingYards = ParseNullableInt(RushingYardsTextBox.Text);
                 int? receivingYards = ParseNullableInt(ReceivingYardsTextBox.Text);
                 int? throwingYards = ParseNullableInt(ThrowingYardsTextBox.Text);
@@ -73,7 +73,7 @@ namespace View
                 int? punts = ParseNullableInt(PuntsTextBox.Text);
                 int? fieldGoalsMade = ParseNullableInt(FieldGoalsMadeTextBox.Text);
 
-                // Call repository to update stats
+                
                 _statRepository.EditPlayerStats(
                     gameId,
                     selectedTeam.TeamName,

@@ -23,14 +23,13 @@ namespace View
             LoadTeams();
         }
 
-        // Load team names into ComboBox
         private void LoadTeams()
         {
             try
             {
                 var teams = _selectRepository.GetTeams();
                 TeamNameComboBox.ItemsSource = teams;
-                TeamNameComboBox.DisplayMemberPath = "TeamName"; // Display the team names
+                TeamNameComboBox.DisplayMemberPath = "TeamName"; 
             }
             catch (Exception ex)
             {
@@ -38,19 +37,19 @@ namespace View
             }
         }
 
-        // Search button click event
+        
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                // Validate Game ID
+                
                 if (!int.TryParse(GameIdTextBox.Text, out var gameId))
                 {
                     MessageBox.Show("Please enter a valid Game ID.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                // Validate Team Name
+                
                 var selectedTeam = TeamNameComboBox.SelectedItem as Team;
                 if (selectedTeam == null || string.IsNullOrWhiteSpace(selectedTeam.TeamName))
                 {
@@ -58,7 +57,6 @@ namespace View
                     return;
                 }
 
-                // Player ID (optional)
                 int? playerId = null;
                 if (!string.IsNullOrWhiteSpace(PlayerIdTextBox.Text))
                 {
@@ -73,10 +71,10 @@ namespace View
                     }
                 }
 
-                // Fetch player stats
+                
                 var playerStats = _statRepository.FetchPlayerStatsByGameAndTeam(gameId, selectedTeam.TeamName, playerId);
 
-                // Bind results to ListView
+                
                 ResultsListView.ItemsSource = playerStats;
             }
             catch (Exception ex)
@@ -86,7 +84,7 @@ namespace View
         }
 
 
-        // Back button click event
+        
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             NavigateBack?.Invoke(this, EventArgs.Empty);

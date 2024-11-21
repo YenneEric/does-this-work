@@ -8,9 +8,7 @@ using PersonData.Models;
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for TopScoring.xaml
-    /// </summary>
+    
     public partial class TopScoring : UserControl
     {
         public event EventHandler<RoutedEventArgs>? CustomChange;
@@ -22,12 +20,10 @@ namespace View
         {
             InitializeComponent();
 
-            // Initialize repositories
             const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=tuesday;Integrated Security=SSPI;";
             _repository = new SqlSelectRepository(connectionString);
             _topScoringRepository = new SqlTouchDownRepository(connectionString);
 
-            // Load ComboBox data
             LoadYears();
         }
 
@@ -35,10 +31,9 @@ namespace View
         {
             try
             {
-                // Fetch available years dynamically from the database
                 var seasons = _repository.GetSeasons();
                 YearComboBox.ItemsSource = seasons.Select(season => season.Year).ToList();
-                YearComboBox.SelectedIndex = 0; // Default selection
+                YearComboBox.SelectedIndex = 0; 
             }
             catch (Exception ex)
             {
@@ -48,15 +43,15 @@ namespace View
 
         private void FetchTopScoringTeams_Click(object sender, RoutedEventArgs e)
         {
-            // Get selected year from the combo box
+            
             if (YearComboBox.SelectedItem is int selectedYear)
             {
                 try
                 {
-                    // Fetch top scoring teams
+                    
                     List<TopScoringTeamRank> topScoringTeams = _topScoringRepository.FetchTopScoringTeams(selectedYear);
 
-                    // Bind the fetched data to the DataGrid
+                    
                     topScoringTeamsDataGrid.ItemsSource = topScoringTeams;
                 }
                 catch (Exception ex)

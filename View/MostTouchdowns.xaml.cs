@@ -8,9 +8,7 @@ using System.Windows.Controls;
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for MostTouchdowns.xaml
-    /// </summary>
+    
     public partial class MostTouchdowns : UserControl
     {
         public event EventHandler<RoutedEventArgs>? CustomChange;
@@ -30,15 +28,12 @@ namespace View
 
         private void FetchRankings_Click(object sender, RoutedEventArgs e)
         {
-            // Get selected year and position from the combo boxes
             if (YearComboBox.SelectedItem is int selectedYear && PositionComboBox.SelectedItem is string selectedPosition)
             {
                 try
                 {
-                    // Fetch ranking data
                     List<PlayerTouchdownRank> ranking = _touchdownRepository.FetchTouchdownsRank(selectedYear, selectedPosition);
 
-                    // Bind the fetched data to the DataGrid
                     touchdownDataGrid.ItemsSource = ranking;
                 }
                 catch (Exception ex)
@@ -57,19 +52,17 @@ namespace View
         {
             LoadYears();
 
-            // Set hard-coded positions
             PositionComboBox.ItemsSource = new List<string> { "Quarterback", "Running Back", "Wide Receiver", "Tight End", "Defensive Back" };
-            PositionComboBox.SelectedIndex = 0; // Set default selection
+            PositionComboBox.SelectedIndex = 0; 
         }
 
         private void LoadYears()
         {
             try
             {
-                // Fetch available years dynamically from the database
                 var seasons = _repository.GetSeasons();
                 YearComboBox.ItemsSource = seasons.Select(season => season.Year).ToList();
-                YearComboBox.SelectedIndex = 0; // Default selection
+                YearComboBox.SelectedIndex = 0; 
             }
             catch (Exception ex)
             {

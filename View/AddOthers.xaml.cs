@@ -14,7 +14,7 @@ namespace View
         {
             InitializeComponent();
 
-            // Initialize the repository with the connection string
+            
             const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=tuesday;Integrated Security=SSPI;";
             _insertRepository = new SqlInsertRepository(connectionString);
         }

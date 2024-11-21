@@ -30,7 +30,7 @@
             <Button Content="Fetch Rankings" Click="FetchRankings_Click" Width="120" />
         </StackPanel>
 
-        <!-- Results Section -->
+        
         <DataGrid x:Name="touchdownDataGrid" Grid.Row="1" Grid.ColumnSpan="2" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Player" Binding="{Binding Player.PlayerName}" />

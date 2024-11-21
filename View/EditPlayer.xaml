@@ -9,15 +9,12 @@
         <StackPanel Margin="20">
             <TextBlock Text="Edit Player" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" />
 
-            <!-- Player ID -->
             <TextBlock Text="Player ID:" />
             <TextBox x:Name="PlayerIdTextBox" IsReadOnly="False" Margin="0,0,0,10" />
 
-            <!-- Player Name -->
             <TextBlock Text="Player Name:" />
             <TextBox x:Name="PlayerNameTextBox" Margin="0,0,0,10" />
 
-            <!-- Position Dropdown -->
             <TextBlock Text="Position:" />
             <ComboBox x:Name="PositionComboBox" Margin="0,0,0,10">
                 <ComboBox.Items>
@@ -33,10 +30,8 @@
                 </ComboBox.Items>
             </ComboBox>
 
-            <!-- Save Button -->
             <Button Content="Save" Click="SaveButton_Click" Width="100" Margin="0,20,0,10" />
 
-            <!-- Back Button -->
             <Button Content="Back" Click="BackButton_Click" Width="75" Margin="0,20,0,10" />
         </StackPanel>
     </Grid>

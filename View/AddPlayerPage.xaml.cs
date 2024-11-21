@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using PersonData; // Namespace for your database repository
-using PersonData.Models; // Namespace for models like Team
+using PersonData; 
+using PersonData.Models; 
 
 namespace View
 {
@@ -13,14 +13,14 @@ namespace View
         public event EventHandler? NavigateBack;
 
 
-        private readonly ISelect _repository; // Repository for fetching data
-        private readonly IInsert _insertRepository; // Repository for inserting data
+        private readonly ISelect _repository; 
+        private readonly IInsert _insertRepository; 
 
         public AddPlayerPage()
         {
             InitializeComponent();
 
-            // Initialize the repositories with a connection string
+            
             const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=tuesday;Integrated Security=SSPI;";
             _repository = new SqlSelectRepository(connectionString);
             _insertRepository = new SqlInsertRepository(connectionString);
@@ -89,10 +89,10 @@ namespace View
                     return;
                 }
 
-                // Add player to the database
+                
                 var playerId = _insertRepository.CreatePlayer(playerName, position);
 
-                // Associate the player with the team in the specified year
+                
                 _insertRepository.CreateTeamPlayer(jerseyNumber, year, teamName, playerId);
 
                 MessageBox.Show($"Player '{playerName}' added as '{position}' to team '{teamName}' for year '{year}' with jersey number '{jerseyNumber}'",

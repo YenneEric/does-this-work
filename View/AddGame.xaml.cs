@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using PersonData; // For repository access
-using PersonData.Models; // For Team class
+using PersonData; 
+using PersonData.Models; 
 
 namespace View
 {
@@ -41,7 +41,7 @@ namespace View
         {
             try
             {
-                // Validate and retrieve input values
+                
                 var gameDate = GameDatePicker.SelectedDate;
                 var location = GameLocationTextBox.Text;
                 var team1 = Team1ComboBox.SelectedItem as Team;
@@ -58,23 +58,23 @@ namespace View
                     return;
                 }
 
-                // Ensure home and away teams are not the same
+                
                 if (team1.TeamId == team2.TeamId)
                 {
                     MessageBox.Show("Home and Away teams cannot be the same.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                // Create game
+                
                 var gameId = _insertRepository.CreateGame((DateTime)gameDate, location);
 
-                // Create GameTeam entries
-                _insertRepository.CreateGameTeam(gameId, team1.TeamName, teamTypeId: 1, topOfPossessionSec: team1Top, score: team1Score); // Home team
-                _insertRepository.CreateGameTeam(gameId, team2.TeamName, teamTypeId: 2, topOfPossessionSec: team2Top, score: team2Score); // Away team
+                
+                _insertRepository.CreateGameTeam(gameId, team1.TeamName, teamTypeId: 1, topOfPossessionSec: team1Top, score: team1Score); 
+                _insertRepository.CreateGameTeam(gameId, team2.TeamName, teamTypeId: 2, topOfPossessionSec: team2Top, score: team2Score); 
 
                 MessageBox.Show("Game and teams added successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                // Navigate back to the previous page
+                
                 NavigateBack?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)

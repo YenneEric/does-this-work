@@ -8,9 +8,7 @@ using PersonData.Models;
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for ConfrenceTeamRank.xaml
-    /// </summary>
+    
     public partial class ConfrenceWins : UserControl
     {
         public event EventHandler<RoutedEventArgs>? CustomChange;
@@ -21,11 +19,11 @@ namespace View
         {
             InitializeComponent();
 
-            // Initialize repository
+            
             const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=tuesday;Integrated Security=SSPI;";
             _repository = new SqlSelectRepository(connectionString);
 
-            // Load ComboBox data
+            
             LoadYears();
             LoadConferences();
         }
@@ -34,10 +32,10 @@ namespace View
         {
             try
             {
-                // Fetch years from repository
+                
                 var seasons = _repository.GetSeasons();
                 YearComboBox.ItemsSource = seasons.Select(season => season.Year).ToList();
-                YearComboBox.SelectedIndex = 0; // Default selection
+                YearComboBox.SelectedIndex = 0; 
             }
             catch (Exception ex)
             {
@@ -49,10 +47,10 @@ namespace View
         {
             try
             {
-                // Fetch conferences from repository
+                
                 var conferences = _repository.GetConferences();
                 ConferenceComboBox.ItemsSource = conferences.Select(conf => conf.ConfName).ToList();
-                ConferenceComboBox.SelectedIndex = 0; // Default selection
+                ConferenceComboBox.SelectedIndex = 0; 
             }
             catch (Exception ex)
             {
@@ -62,16 +60,13 @@ namespace View
 
         private void FetchConferenceTeamRanks_Click(object sender, RoutedEventArgs e)
         {
-            // Get selected year and conference
             if (YearComboBox.SelectedItem is int selectedYear && ConferenceComboBox.SelectedItem is string selectedConference)
             {
                 try
                 {
-                    // Fetch rankings from the repository
                     var conferenceTeamRanks = new SqlConferenceWinsRepository("Server=(localdb)\\MSSQLLocalDb;Database=tuesday;Integrated Security=SSPI;")
                         .FetchConferenceTeamRank(selectedYear, selectedConference);
 
-                    // Bind results to DataGrid
                     conferenceRankDataGrid.ItemsSource = conferenceTeamRanks;
                 }
                 catch (Exception ex)

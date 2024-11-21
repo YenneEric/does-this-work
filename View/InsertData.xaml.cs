@@ -22,7 +22,7 @@ namespace View
         private string? _currentTeamName;
         private int? _currentYear;
 
-        // Properties for binding
+        
         public List<PlayerDetails> PlayerDetails { get; set; } = new List<PlayerDetails>();
         public List<GameSchedule> ScheduleDetails { get; set; } = new List<GameSchedule>();
         public List<string> Teams { get; set; } = new List<string>();
@@ -44,7 +44,7 @@ namespace View
             ClearData();
         }
 
-        // Load teams and years into dropdowns
+        
         private void LoadTeamsAndYears()
         {
             try
@@ -64,7 +64,7 @@ namespace View
             }
         }
 
-        // Load player and schedule data for the selected team and year
+        
         private void LoadData(string teamName, int year)
         {
             try
@@ -72,7 +72,7 @@ namespace View
                 _currentTeamName = teamName;
                 _currentYear = year;
 
-                // Load player details
+                
                 var team = _selectRepository.GetTeams(teamName: teamName).FirstOrDefault();
                 if (team == null)
                 {
@@ -104,7 +104,7 @@ namespace View
                     .Where(pd => pd != null)
                     .ToList();
 
-                // Load game schedule
+                
                 ScheduleDetails = _repository.FetchGameSchedule(teamName, year).ToList();
 
                 var conference = _selectRepository.GetConferences(confId: team.ConfId).FirstOrDefault();
@@ -120,7 +120,7 @@ namespace View
             }
         }
 
-        // Clear all data
+        
         private void ClearData()
         {
             PlayerDetails.Clear();
@@ -129,10 +129,10 @@ namespace View
             UpdateData();
         }
 
-        // Update the UI with new data
+        
         private void UpdateData()
         {
-            // Update the data context, allowing blank lists to display nothing
+            
             DataContext = null;
             DataContext = this;
         }
@@ -186,10 +186,10 @@ namespace View
 
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
-            // Refresh the dropdowns for team name and year
+            
             LoadTeamsAndYears();
 
-            // Reload the player and schedule data if team and year are selected
+            
             if (!string.IsNullOrWhiteSpace(_currentTeamName) && _currentYear.HasValue)
             {
                 LoadData(_currentTeamName, _currentYear.Value);
