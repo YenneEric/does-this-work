@@ -31,7 +31,7 @@ namespace PersonData
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    // Add parameters
+                    
                     command.Parameters.AddWithValue("Year", year);
                     command.Parameters.AddWithValue("Position", pos);
 
@@ -78,7 +78,7 @@ namespace PersonData
         {
             var stats = new List<PlayerTouchdownRank>();
 
-            // Get column ordinals for efficiency
+            
             var playerIdOrdinal = reader.GetOrdinal("PlayerId");
             var playerNameOrdinal = reader.GetOrdinal("PlayerName");
             var positionOrdinal = reader.GetOrdinal("Position");
@@ -118,7 +118,7 @@ namespace PersonData
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    // Add parameters
+                    
                     command.Parameters.AddWithValue("@TeamName", teamName);
                     command.Parameters.AddWithValue("@Year", year);
 
@@ -141,7 +141,7 @@ namespace PersonData
         {
             var schedule = new List<GameSchedule>();
 
-            // Get column ordinals for efficiency
+            
             var gameIdOrdinal = reader.GetOrdinal("GameId");
             var gameDateOrdinal = reader.GetOrdinal("GameDate");
             var gameLocationOrdinal = reader.GetOrdinal("GameLocation");
@@ -157,8 +157,8 @@ namespace PersonData
             {
                 schedule.Add(new GameSchedule
                 {
-                    GameId = reader.GetInt32(gameIdOrdinal), // Include GameId
-                    GameDate = reader.GetDateTime(gameDateOrdinal).Date, // Only show the date
+                    GameId = reader.GetInt32(gameIdOrdinal), 
+                    GameDate = reader.GetDateTime(gameDateOrdinal).Date, 
                     GameLocation = reader.GetString(gameLocationOrdinal),
                     TeamName = reader.GetString(teamNameOrdinal),
                     TeamScore = reader.IsDBNull(teamScoreOrdinal) ? (int?)null : reader.GetInt32(teamScoreOrdinal),
@@ -189,11 +189,11 @@ namespace PersonData
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    // Add parameters   
+                      
                     command.Parameters.AddWithValue("@GameId", gameId);
                     command.Parameters.AddWithValue("@TeamName", teamName);
 
-                    // Add optional PlayerId parameter
+                    
                     if (playerId.HasValue)
                         command.Parameters.AddWithValue("@PlayerId", playerId.Value);
                     else
@@ -207,7 +207,7 @@ namespace PersonData
                         {
                             playerStats.Add(new GamePlayerStats(
                                 gameId,
-                                reader.GetInt32(reader.GetOrdinal("PlayerId")), // Fetch PlayerId
+                                reader.GetInt32(reader.GetOrdinal("PlayerId")), 
                                 reader.GetString(reader.GetOrdinal("PlayerName")),
                                 reader.GetString(reader.GetOrdinal("Position")),
                                 reader.IsDBNull(reader.GetOrdinal("RushingYards")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("RushingYards")),
@@ -260,12 +260,12 @@ namespace PersonData
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    // Add required parameters
+                    
                     command.Parameters.AddWithValue("@GameId", gameId);
                     command.Parameters.AddWithValue("@TeamName", teamName);
                     command.Parameters.AddWithValue("@PlayerId", playerId);
 
-                    // Add optional parameters
+                    
                     command.Parameters.AddWithValue("@RushingYards", rushingYards.HasValue ? (object)rushingYards.Value : DBNull.Value);
                     command.Parameters.AddWithValue("@ReceivingYards", receivingYards.HasValue ? (object)receivingYards.Value : DBNull.Value);
                     command.Parameters.AddWithValue("@ThrowingYards", throwingYards.HasValue ? (object)throwingYards.Value : DBNull.Value);
@@ -327,7 +327,7 @@ namespace PersonData
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    // Add parameter for year
+                    
                     command.Parameters.AddWithValue("Year", year);
 
                     connection.Open();
@@ -349,7 +349,7 @@ namespace PersonData
         {
             var teams = new List<TopScoringTeamRank>();
 
-            // Get column ordinals for efficiency
+            
             var teamNameOrdinal = reader.GetOrdinal("TeamName");
             var totalPointsOrdinal = reader.GetOrdinal("TotalPoints");
             var gamesPlayedOrdinal = reader.GetOrdinal("GamesPlayed");

@@ -10,14 +10,12 @@ namespace PersonData
     public interface IInsert
     {
 
-        ///create player with name and position
+        
         int CreatePlayer(string name, string pos);
 
 
-        ///create player with playerid, teamname, season, jerseynumber
         int CreateTeamPlayer(int jerseynumber, string year, string teamname, int playerid);
 
-        //create player with player id, season year, team name , and game id, and then stats
         void CreatePlayerStats(
         int playerId,
         string seasonYear,
@@ -35,7 +33,6 @@ namespace PersonData
         int punts = 0
     );
 
-        //create game with date, location, and 1 if canceled and 0 if not 
         int CreateGame(DateTime date, string location, int canceled = 0);
 
 

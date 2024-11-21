@@ -230,13 +230,13 @@ namespace PersonData
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    // Add input parameters
+                    
                     command.Parameters.AddWithValue("@TeamName", teamName);
                     command.Parameters.AddWithValue("@Location", location);
-                    command.Parameters.AddWithValue("@Mascot", (object)mascot ?? DBNull.Value); // Allow null for Mascot
+                    command.Parameters.AddWithValue("@Mascot", (object)mascot ?? DBNull.Value); 
                     command.Parameters.AddWithValue("@ConfName", confName);
 
-                    // Add output parameter for TeamId
+                    
                     var teamIdParam = new SqlParameter("@TeamId", SqlDbType.Int)
                     {
                         Direction = ParameterDirection.Output
@@ -246,7 +246,7 @@ namespace PersonData
                     connection.Open();
                     command.ExecuteNonQuery();
 
-                    // Retrieve the TeamId from the output parameter
+                    
                     return (int)teamIdParam.Value;
                 }
             }
@@ -264,7 +264,7 @@ namespace PersonData
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    // Add input parameter
+                    
                     command.Parameters.AddWithValue("@ConfName", confName);
 
                     connection.Open();
@@ -288,7 +288,7 @@ namespace PersonData
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    // Add the input parameter for Year
+                   
                     command.Parameters.AddWithValue("@Year", year);
 
                     connection.Open();

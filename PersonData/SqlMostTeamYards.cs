@@ -31,7 +31,7 @@ namespace PersonData
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    // Add parameter for the year
+                    
                     command.Parameters.AddWithValue("Year", year);
 
                     connection.Open();
@@ -53,7 +53,7 @@ namespace PersonData
         {
             var teams = new List<MostTeamYards>();
 
-            // Get column ordinals for efficiency
+            
             var teamNameOrdinal = reader.GetOrdinal("TeamName");
             var yardsOrdinal = reader.GetOrdinal("Yards");
             var rankOrdinal = reader.GetOrdinal("Rank");
@@ -67,7 +67,7 @@ namespace PersonData
                 teams.Add(new MostTeamYards(teamName, yards, rank));
             }
 
-            // Rank the teams by yards (descending order)
+            
             teams.Sort((t1, t2) => t2.Yards.CompareTo(t1.Yards));
 
             return teams;

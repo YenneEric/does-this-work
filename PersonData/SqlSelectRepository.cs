@@ -30,7 +30,7 @@ namespace PersonData
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    // Add parameters
+                    
                     command.Parameters.AddWithValue("@PlayerId", (object)playerId ?? DBNull.Value);
                     command.Parameters.AddWithValue("@Position", (object)position ?? DBNull.Value);
 
@@ -114,7 +114,7 @@ namespace PersonData
             {
                 command.CommandType = CommandType.StoredProcedure;
 
-                // Add parameters
+                
                 command.Parameters.AddWithValue("@PlayerStatsId", (object)playerStatsId ?? DBNull.Value);
                 command.Parameters.AddWithValue("@TeamPlayerId", (object)teamPlayerId ?? DBNull.Value);
                 command.Parameters.AddWithValue("@GameId", (object)gameId ?? DBNull.Value);
@@ -178,7 +178,7 @@ namespace PersonData
             {
                 command.CommandType = CommandType.StoredProcedure;
 
-                // Add parameters
+                
                 command.Parameters.AddWithValue("@GameTeamId", (object)gameTeamId ?? DBNull.Value);
                 command.Parameters.AddWithValue("@TeamId", (object)teamId ?? DBNull.Value);
                 command.Parameters.AddWithValue("@GameId", (object)gameId ?? DBNull.Value);

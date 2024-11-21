@@ -29,7 +29,7 @@ namespace PersonData
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    // Add parameters
+                    
                     command.Parameters.AddWithValue("@Year", year);
                     command.Parameters.AddWithValue("@ConfName", confName);
 
@@ -50,7 +50,7 @@ namespace PersonData
         {
             var teams = new List<ConferenceTeamRank>();
 
-            // Get column ordinals for efficiency
+            
             var teamNameOrdinal = reader.GetOrdinal("TeamName");
             var winsOrdinal = reader.GetOrdinal("Wins");
             var conferenceRankOrdinal = reader.GetOrdinal("ConferenceRank");
