@@ -19,11 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{5F91
 		Scripts\DropDatabase.ps1 = Scripts\DropDatabase.ps1
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "demo", "demo\demo.csproj", "{B02B1BC7-C823-4C27-B045-27594A049ADE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "View", "View\View.csproj", "{D3F1222D-A91F-49DF-9A2C-D32E55CF868C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{7A8BC678-192D-416B-B278-EAF449A1B481}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{7A8BC678-192D-416B-B278-EAF449A1B481}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +37,6 @@ Global
 		{5912C4F2-7B16-4D80-9EF1-34DF9073421F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5912C4F2-7B16-4D80-9EF1-34DF9073421F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5912C4F2-7B16-4D80-9EF1-34DF9073421F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B02B1BC7-C823-4C27-B045-27594A049ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B02B1BC7-C823-4C27-B045-27594A049ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B02B1BC7-C823-4C27-B045-27594A049ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B02B1BC7-C823-4C27-B045-27594A049ADE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D3F1222D-A91F-49DF-9A2C-D32E55CF868C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D3F1222D-A91F-49DF-9A2C-D32E55CF868C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3F1222D-A91F-49DF-9A2C-D32E55CF868C}.Release|Any CPU.ActiveCfg = Release|Any CPU

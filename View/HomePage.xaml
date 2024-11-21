@@ -24,7 +24,7 @@
         <TextBlock Grid.ColumnSpan="3" Text="College Football Stats" TextAlignment="Center" VerticalAlignment="Center" FontSize="45"></TextBlock>
         
 
-        <Button Name="InsertButton" Content="Insert new data" Click="EventClick" Grid.Row="0" Grid.Column="3" Margin="40"></Button>
+        <Button Name="InsertButton" Content="View Team" Click="EventClick" Grid.Row="0" Grid.Column="3" Margin="40"></Button>
         <Button Name="MostTd" Content="Most Touchdowns" Click="EventClick" Grid.Row="1" Grid.Column="1" Margin="40"></Button>
         <Button Name="TopScoring" Content="Top Scoring Team" Click="EventClick" Grid.Row="1" Grid.Column="2" Margin="40"></Button>
         <Button Name="ConfrenceWins" Content="Confrence Wins" Click="EventClick" Grid.Row="2" Grid.Column="1" Margin="40"></Button>

@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Header Section -->
-        <TextBlock Text="Insert Data" 
+        <TextBlock Text="Team View" 
                    FontSize="24" 
                    FontWeight="Bold" 
                    HorizontalAlignment="Center" 
