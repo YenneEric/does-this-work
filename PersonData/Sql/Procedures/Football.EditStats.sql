@@ -1,4 +1,7 @@
 ﻿
+--edit this stats of a player given a gameid teamname, and playerid all others are optional
+
+
 CREATE OR ALTER PROCEDURE Football.EditPlayerStats
     @GameId INT,
     @TeamName NVARCHAR(255),
@@ -15,7 +18,7 @@ CREATE OR ALTER PROCEDURE Football.EditPlayerStats
     @FieldGoalsMade INT = NULL
 AS
 BEGIN
-    -- Only proceed if the combination of GameId, TeamName, and PlayerId exists
+    
     IF EXISTS (
         SELECT 1
         FROM Football.Game g
@@ -25,7 +28,7 @@ BEGIN
         WHERE g.GameId = @GameId AND t.TeamName = @TeamName AND tp.PlayerId = @PlayerId
     )
     BEGIN
-        -- Update the PlayerStats table
+        
         UPDATE Football.PlayerStats
         SET
             RushingYards = COALESCE(@RushingYards, RushingYards),

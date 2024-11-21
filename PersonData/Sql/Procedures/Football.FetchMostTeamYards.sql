@@ -1,4 +1,7 @@
-﻿CREATE OR ALTER PROCEDURE Football.FetchMostTeamYards
+﻿
+--anothe aggergate to rank teams in a year for most total yards
+
+CREATE OR ALTER PROCEDURE Football.FetchMostTeamYards
     @Year INT
 AS
 BEGIN
@@ -19,7 +22,7 @@ BEGIN
     JOIN 
         PlayerStats PS ON TP.TeamPlayerId = PS.TeamPlayerId
     WHERE 
-        S.Year = @Year -- Replace @Year with the desired year, e.g., 2024
+        S.Year = @Year 
     GROUP BY 
         T.TeamName, S.Year
     ORDER BY 

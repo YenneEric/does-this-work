@@ -80,11 +80,6 @@
     <EmbeddedResource Include="Sql\Tables\DropTables.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sql\Procedures\Person.RetrievePersons.sql" />
-    <EmbeddedResource Include="Sql\Procedures\Person.GetPersonByEmail.sql" />
-    <EmbeddedResource Include="Sql\Procedures\Person.CreatePerson.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Sql\Tables\Person.Person.sql" />
   </ItemGroup>
   <ItemGroup>
@@ -92,18 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Sql\Tables\Person.PersonAddress.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Sql\Schemas\Person.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Sql\Procedures\Person.SavePersonAddress.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Sql\Procedures\Person.RetrieveAddressesForPerson.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Sql\Procedures\Person.FetchPerson.sql" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sql\Data\Football.Conference.sql" />
@@ -145,7 +128,6 @@
     <Content Include="Sql\Procedures\Football.UpdatePlayer.sql" />
     <Content Include="Sql\Procedures\Football.UpdatePlayerStats.sql" />
     <Content Include="Sql\Procedures\Football.UpdateTeam.sql" />
-    <Content Include="Sql\Procedures\RetrieveAdressNames.sql" />
     <Content Include="Sql\Tables\Football.Game.sql" />
     <Content Include="Sql\Tables\Football.GameTeam.sql" />
     <Content Include="Sql\Tables\Football.Player.sql" />

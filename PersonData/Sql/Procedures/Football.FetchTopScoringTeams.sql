@@ -1,4 +1,7 @@
-﻿CREATE OR ALTER PROCEDURE Football.FetchTopScoringTeams
+﻿
+--another aggregate to rank teams based on points for a given year
+
+CREATE OR ALTER PROCEDURE Football.FetchTopScoringTeams
     @Year INT
 AS
 BEGIN

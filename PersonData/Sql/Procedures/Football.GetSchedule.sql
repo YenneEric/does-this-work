@@ -1,10 +1,13 @@
-﻿CREATE PROCEDURE Football.GetTeamSchedule
+﻿
+--this is a aggreagete function to create a scedule for a team given name and year
+
+CREATE PROCEDURE Football.GetTeamSchedule
     @TeamName NVARCHAR(100),
     @Year INT
 AS
 BEGIN
     SELECT DISTINCT
-        g.GameId, -- Include GameId
+        g.GameId, 
         g.Date AS GameDate,
         g.Location AS GameLocation,
         t1.TeamName AS Team,
@@ -27,6 +30,6 @@ BEGIN
     INNER JOIN Season s ON tp.SeasonId = s.SeasonId
     WHERE t1.TeamName = @TeamName
       AND s.Year = @Year
-      AND g.Date BETWEEN CONCAT(@Year, '-01-01') AND CONCAT(@Year, '-12-31') -- Ensure the game's date is strictly within the year
+      AND g.Date BETWEEN CONCAT(@Year, '-01-01') AND CONCAT(@Year, '-12-31')
     ORDER BY g.Date;
 END;

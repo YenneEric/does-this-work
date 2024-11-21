@@ -1,4 +1,6 @@
-﻿CREATE OR ALTER PROCEDURE Football.GetPlayerStatsByGameAndTeam
+﻿--shows player stats for a game given the gameid and name of team player id can search for 1 player
+
+CREATE OR ALTER PROCEDURE Football.GetPlayerStatsByGameAndTeam
     @GameId INT,
     @TeamName NVARCHAR(255),
     @PlayerId INT = NULL 

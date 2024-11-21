@@ -1,18 +1,18 @@
-﻿
+﻿--one of the aggregate querires that ranks team win in conference based on year and conference names
 
 CREATE OR ALTER PROCEDURE Football.FetchConferenceTeamRank
     @Year INT,
     @ConfName NVARCHAR(255)
 AS
 BEGIN
-    -- Temporary table to store results
+    
     CREATE TABLE #TeamWins (
         TeamName NVARCHAR(255),
         Wins INT,
         ConferenceRank INT
     );
 
-    -- Calculate team wins within the specified conference and year
+    
     INSERT INTO #TeamWins (TeamName, Wins, ConferenceRank)
     SELECT 
         T.TeamName,
@@ -31,11 +31,11 @@ BEGIN
         ) Opp ON GT.GameId = Opp.GameId AND GT.TeamId <> Opp.TeamId
     WHERE 
         C.ConfName = @ConfName 
-        AND YEAR(G.[Date]) = @Year -- Filter by the year from the Game table
+        AND YEAR(G.[Date]) = @Year 
     GROUP BY 
         T.TeamName;
 
-    -- Select results
+    
     SELECT 
         TeamName,
         Wins,
@@ -45,6 +45,6 @@ BEGIN
     ORDER BY 
         ConferenceRank;
 
-    -- Cleanup
+    
     DROP TABLE #TeamWins;
 END;

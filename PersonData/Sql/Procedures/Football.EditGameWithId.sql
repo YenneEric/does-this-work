@@ -1,5 +1,5 @@
 ﻿
-
+-- procedure to update the game details based on gameid being requiered rest not
 CREATE OR ALTER PROCEDURE Football.UpdateGameDetails
     @GameId INT,                       
     @HomeTeamName NVARCHAR(255) = NULL, 
@@ -12,7 +12,7 @@ CREATE OR ALTER PROCEDURE Football.UpdateGameDetails
     @GameDate DATE = NULL               
 AS
 BEGIN
-    -- Update the home team details
+    
     UPDATE gt
     SET
         Score = COALESCE(@HomeScore, Score),
@@ -22,17 +22,17 @@ BEGIN
     WHERE gt.GameId = @GameId AND gt.TeamTypeId = 1 
       AND (t.TeamName = @HomeTeamName OR @HomeTeamName IS NULL);
 
-    -- Update the away team details
+    
     UPDATE gt
     SET
         Score = COALESCE(@AwayScore, Score),
         TopOfPossessionSec = COALESCE(@AwayTimeOfPossession, TopOfPossessionSec)
     FROM Football.GameTeam gt
     INNER JOIN Football.Team t ON gt.TeamId = t.TeamId
-    WHERE gt.GameId = @GameId AND gt.TeamTypeId = 2 -- Away team
+    WHERE gt.GameId = @GameId AND gt.TeamTypeId = 2 
       AND (t.TeamName = @AwayTeamName OR @AwayTeamName IS NULL);
 
-    -- Update the game location and date
+    
     UPDATE Football.Game
     SET
         Location = COALESCE(@GameLocation, Location),
