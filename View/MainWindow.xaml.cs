@@ -33,7 +33,7 @@ namespace View
             ViewStats.NavigateBack += (s, e) => NavigateBackToInsertData();
             EditStats.NavigateBack += (s, e) => NavigateBackToInsertData();
 
-
+            AddOthers.CustomChange += NavigateBackToHome;
 
 
         }
@@ -61,6 +61,9 @@ namespace View
                     break;
                 case "MostTeamYards":
                     MostTeamYards.Visibility = Visibility.Visible;
+                    break;
+                case "AddOthers": // Correct button name
+                    AddOthers.Visibility = Visibility.Visible; 
                     break;
             }
         }
@@ -132,7 +135,7 @@ namespace View
             EditGame.Visibility = Visibility.Hidden;
             ViewStats.Visibility = Visibility.Hidden;
             EditStats.Visibility = Visibility.Hidden;
-
+            AddOthers.Visibility = Visibility.Hidden;
 
 
 

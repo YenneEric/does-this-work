@@ -25,5 +25,9 @@
         <local:ConfrenceWins x:Name="ConfrenceWins" Visibility="Hidden" />
         <local:MostTeamYards x:Name="MostTeamYards" Visibility="Hidden" />
         <local:TopScoring x:Name="TopScoring" Visibility="Hidden" />
+
+        <local:AddOthers x:Name="AddOthers" Visibility="Hidden" />
+
+
     </Grid>
 </Window>
