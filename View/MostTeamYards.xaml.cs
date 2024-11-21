@@ -68,6 +68,8 @@ namespace View
             {
                 MessageBox.Show("Please select a valid year.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+            LoadYears();
+
         }
 
         private void BackToHomePage(object sender, RoutedEventArgs e)
