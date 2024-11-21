@@ -1,3 +1,4 @@
+- To open double click on the Football.sln
 - To run the code right click on the RebuildDatabase, open the Power shell and type .\RebuildDatabase.ps1
 	the database [string] $Server = "(localdb)\MSSQLLocalDb",
    [string] $Database = "tuesday", it should be tuesday since that the database all of the code refers too 
@@ -23,3 +24,5 @@ the result columns
 -final is the view which is WPF and it how the user can see and interact with all of the data 
 there are mutiple user controls that are hidden until there button is clicked. You are able to select data from 
 the database, insert, and update using the buttons and using the correct paramaters
+
+Note- When running the view, make sure that the View is next to green arrow
